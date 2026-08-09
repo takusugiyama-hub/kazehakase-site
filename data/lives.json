@@ -1,0 +1,68 @@
+[
+  {
+    "id": "live-20260926",
+    "date": "2026-09-26",
+    "title": "歌うように描き、描くように歌う",
+    "venue": "クラフト館 岩井窯 参考館",
+    "area": "鳥取県岩美町宇治134-1",
+    "open": "17:30",
+    "start": "18:30",
+    "advancePrice": "3,500円",
+    "doorPrice": "4,000円",
+    "artists": [
+      "Chima（札幌）",
+      "風博士",
+      "近藤康平（ライブドローイング）"
+    ],
+    "description": "",
+    "image": "/images/live/2026-09-26.jpg",
+    "detailUrl": "/live/2026-09-26",
+    "reservationUrl": "",
+    "soldOut": false,
+    "cancelled": false,
+    "published": true
+  },
+  {
+    "id": "live-20250518",
+    "date": "2025-05-18",
+    "title": "風博士 春の演奏会",
+    "venue": "喫茶 月夜",
+    "area": "鳥取県鳥取市",
+    "open": "17:30",
+    "start": "18:00",
+    "advancePrice": "3,000円",
+    "doorPrice": "3,500円",
+    "artists": [
+      "風博士"
+    ],
+    "description": "",
+    "image": "",
+    "detailUrl": "",
+    "reservationUrl": "",
+    "soldOut": false,
+    "cancelled": false,
+    "published": true
+  },
+  {
+    "id": "live-20241103",
+    "date": "2024-11-03",
+    "title": "秋の夜の音楽会",
+    "venue": "山の小さなホール",
+    "area": "兵庫県",
+    "open": "18:00",
+    "start": "18:30",
+    "advancePrice": "3,000円",
+    "doorPrice": "3,500円",
+    "artists": [
+      "風博士",
+      "ゲスト出演者"
+    ],
+    "description": "",
+    "image": "",
+    "detailUrl": "",
+    "reservationUrl": "",
+    "soldOut": false,
+    "cancelled": false,
+    "published": true
+  }
+]

@@ -1,0 +1,579 @@
+/* =====================================
+   First view
+===================================== */
+
+.home-first-view {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100svh;
+  min-height: 680px;
+
+  overflow: hidden;
+}
+
+
+/* =====================================
+   Hero
+===================================== */
+
+.hero {
+  position: relative;
+
+  flex: 1 1 auto;
+  min-height: 0;
+
+  width: 100%;
+
+  overflow: hidden;
+  background: #ddd;
+}
+
+.hero__image {
+  z-index: 0;
+
+  object-fit: cover;
+  object-position: 35% 35%;
+}
+
+
+/* =====================================
+   Hero content
+===================================== */
+
+.hero__content {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 440px);
+
+  align-items: center;
+
+  padding: 88px 8vw 110px;
+
+  pointer-events: none;
+}
+
+
+/* =====================================
+   Random lyric
+===================================== */
+
+.random-lyric {
+  position: relative;
+
+  grid-column: 2;
+
+  width: 100%;
+
+  /*
+   * ランダム歌詞ブロック全体の位置調整。
+   * 数値を大きくすると右へ、小さくすると左へ。
+   */
+  transform: translateX(120px);
+
+  color: rgba(20, 20, 20, 0.92);
+
+  pointer-events: auto;
+}
+
+.random-lyric__copy {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+}
+
+.random-lyric__text {
+  margin: 0;
+
+  font-size: clamp(12px, 1.5vw, 14px);
+  font-weight: 400;
+  line-height: 2.5;
+  letter-spacing: 0.09em;
+}
+
+
+/* =====================================
+   Random lyric entrance
+===================================== */
+
+.random-lyric__line {
+  display: block;
+
+  opacity: 0;
+
+  transform: translateX(8px);
+
+  animation:
+    random-lyric-line-in
+    1800ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+.random-lyric__title {
+  display: block;
+
+  width: 100%;
+
+  margin: 6px 0 0;
+
+  /*
+   * 曲名だけを歌詞ブロックの右端から
+   * 少し内側へ寄せる。
+   */
+  padding-right: 180px;
+
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+
+  text-align: right;
+
+  opacity: 0;
+
+  transform: translateX(6px);
+
+  animation:
+    random-lyric-title-in
+    1400ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+@keyframes random-lyric-line-in {
+  from {
+    opacity: 0;
+
+    transform: translateX(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+@keyframes random-lyric-title-in {
+  from {
+    opacity: 0;
+
+    transform: translateX(6px);
+  }
+
+  to {
+    opacity: 0.75;
+
+    transform: translateX(0);
+  }
+}
+
+
+/* =====================================
+   Streaming
+===================================== */
+
+.random-lyric__streaming {
+  position: relative;
+  z-index: 3;
+}
+
+.random-lyric__streaming--desktop {
+  display: block;
+
+  width: max-content;
+  max-width: 100%;
+
+  margin-top: 22px;
+}
+
+.random-lyric__streaming--mobile {
+  display: none;
+}
+
+
+/* =====================================
+   Streaming toggle
+===================================== */
+
+/* Safari標準のマーカーを削除 */
+
+.random-lyric__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 38px;
+  padding: 0;
+
+  color: inherit;
+  background: transparent;
+
+  border: 0;
+
+  font-size: 13px;
+  letter-spacing: 0.08em;
+
+  list-style: none;
+  cursor: pointer;
+
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+
+  transition: opacity 200ms ease;
+}
+
+.random-lyric__toggle::-webkit-details-marker {
+  display: none;
+}
+
+.random-lyric__toggle::marker {
+  content: "";
+}
+
+.random-lyric__toggle:hover,
+.random-lyric__toggle:focus-visible {
+  opacity: 0.65;
+}
+
+
+/* =====================================
+   Toggle icon
+===================================== */
+
+.random-lyric__toggle-icon {
+  position: relative;
+
+  display: inline-block;
+  flex-shrink: 0;
+
+  width: 13px;
+  height: 13px;
+}
+
+.random-lyric__toggle-icon::before,
+.random-lyric__toggle-icon::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 11px;
+  height: 1px;
+
+  background: currentColor;
+
+  transform: translate(-50%, -50%);
+
+  transition: transform 220ms ease;
+}
+
+.random-lyric__toggle-icon::after {
+  transform:
+    translate(-50%, -50%)
+    rotate(90deg);
+}
+
+.random-lyric__streaming[open]
+.random-lyric__toggle-icon::after {
+  transform:
+    translate(-50%, -50%)
+    rotate(0deg);
+}
+
+
+/* =====================================
+   PC streaming panel
+===================================== */
+
+.random-lyric__links-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 5;
+
+  width: min(440px, 42vw);
+
+  padding-top: 10px;
+
+  opacity: 0;
+
+  transform: translateY(-6px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 220ms ease,
+    transform 280ms ease;
+}
+
+.random-lyric__streaming[open]
+.random-lyric__links-panel {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+
+/* =====================================
+   Mobile streaming entrance
+===================================== */
+
+@keyframes random-lyric-streaming-in {
+  from {
+    opacity: 0;
+
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* =====================================
+   Reduced motion
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .random-lyric__line {
+    opacity: 1;
+
+    transform: none;
+
+    animation: none;
+  }
+
+  .random-lyric__title {
+    opacity: 0.75;
+
+    transform: none;
+
+    animation: none;
+  }
+
+  .random-lyric__streaming--mobile {
+    opacity: 1;
+
+    transform: none;
+
+    animation: none;
+  }
+}
+
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 768px) {
+  .home-first-view {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+    min-height: 0;
+
+    overflow: visible;
+  }
+
+
+  /* =====================================
+     Hero
+  ===================================== */
+
+  .hero {
+    flex: none;
+
+    width: 100%;
+    height: 82svh;
+    min-height: 620px;
+
+    overflow: hidden;
+  }
+
+  .hero__image {
+    object-position: 36% 35%;
+  }
+
+  .hero__content {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+
+    display: block;
+
+    padding: 0;
+
+    pointer-events: none;
+  }
+
+
+  /* =====================================
+     Random lyric
+  ===================================== */
+
+  .hero__content .random-lyric {
+    position: absolute !important;
+
+    top: 112px !important;
+    right: 10px !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    z-index: 21;
+
+    grid-column: auto !important;
+    align-self: auto !important;
+    justify-self: auto !important;
+
+    width: min(225px, 58vw) !important;
+    max-width: 225px !important;
+
+    margin: 0 !important;
+
+    transform: none !important;
+
+    color: rgba(20, 20, 20, 0.94);
+
+    text-align: right;
+
+    pointer-events: auto;
+  }
+
+  .random-lyric__copy {
+    width: 100%;
+
+    text-align: right;
+  }
+
+  .random-lyric__text {
+    margin: 0;
+
+    font-size: clamp(12px, 1.5vw, 14px);
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: 0.04em;
+
+    text-align: right;
+  }
+
+  .random-lyric__title {
+    width: 100%;
+
+    margin-top: 10px;
+    padding-right: 0;
+
+    text-align: right;
+
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 0.06em;
+  }
+
+
+  /* =====================================
+     Streaming
+  ===================================== */
+
+  .random-lyric__streaming--desktop {
+    display: none !important;
+  }
+
+  .random-lyric__streaming--mobile {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    opacity: 0;
+
+    transform: translateY(6px);
+
+    animation:
+      random-lyric-streaming-in
+      1200ms
+      cubic-bezier(0.22, 1, 0.36, 1)
+      forwards;
+  }
+
+  .random-lyric__mobile-label {
+    margin: 0 0 8px;
+
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 0.08em;
+
+    text-align: right;
+
+    opacity: 0.72;
+  }
+
+  /*
+   * StreamingServiceLinks の中身を
+   * モバイルでは右寄せ。
+   */
+  .random-lyric__streaming--mobile
+.streaming-service-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+}
+
+
+/* =====================================
+   Small mobile
+===================================== */
+
+@media (max-width: 390px) {
+  .hero {
+    height: 80svh;
+    min-height: 600px;
+  }
+
+  .hero__content .random-lyric {
+    top: 104px !important;
+    right: 8px !important;
+
+    width: min(210px, 56vw) !important;
+    max-width: 210px !important;
+  }
+
+  .random-lyric__text {
+    font-size: 12px;
+    line-height: 1.72;
+  }
+
+  .random-lyric__title {
+    font-size: 10px;
+  }
+
+  .random-lyric__streaming--mobile {
+    margin-top: 18px;
+  }
+
+  .random-lyric__mobile-label {
+    font-size: 9px;
+  }
+
+  .random-lyric__streaming--mobile img {
+    filter: grayscale(100%) contrast(90%);
+}
+}

@@ -1,0 +1,247 @@
+/* =====================================
+   Biography page
+===================================== */
+
+.biography-page {
+  min-height: 100svh;
+
+  padding: 170px 0 140px;
+
+  color: #171717;
+  background: #f7f5f0;
+}
+
+.biography-page__container {
+  width: min(1180px, calc(100% - 96px));
+
+  margin-inline: auto;
+}
+
+
+/* =====================================
+   Header
+===================================== */
+
+.biography-page__header {
+  margin-bottom: clamp(80px, 10vw, 150px);
+}
+
+.biography-page__label {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+}
+
+
+/* =====================================
+   Intro
+===================================== */
+
+.biography-page__intro {
+  width: min(720px, 100%);
+
+  margin-inline: auto;
+}
+
+
+/* =====================================
+   Quote / Closing
+===================================== */
+
+.biography-page__quote,
+.biography-page__closing {
+  font-size: clamp(18px, 1.7vw, 22px);
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 0.07em;
+}
+
+.biography-page__quote {
+  margin: 0 0 42px;
+}
+
+.biography-page__closing {
+  margin: 52px 0 0;
+}
+
+
+/* =====================================
+   Intro text
+===================================== */
+
+.biography-page__text {
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 2.25;
+  letter-spacing: 0.055em;
+}
+
+.biography-page__text + .biography-page__text {
+  margin-top: 30px;
+}
+
+
+/* =====================================
+   History
+===================================== */
+
+.biography-page__history {
+  width: min(760px, 100%);
+
+  margin: clamp(140px, 16vw, 220px) auto 0;
+}
+
+
+/* =====================================
+   Chapter
+===================================== */
+
+.biography-page__chapter {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 56px;
+
+  padding: 72px 0;
+
+  border-top: 1px solid rgba(20, 20, 20, 0.14);
+}
+
+.biography-page__chapter:last-child {
+  padding-bottom: 0;
+}
+
+.biography-page__chapter-title {
+  margin: 4px 0 0;
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+}
+
+.biography-page__chapter-body {
+  max-width: 560px;
+}
+
+.biography-page__chapter-body p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+}
+
+.biography-page__chapter-body p + p {
+  margin-top: 26px;
+}
+
+
+/* =====================================
+   Ending
+===================================== */
+
+.biography-page__ending {
+  margin-top: 48px !important;
+
+  font-size: 16px !important;
+  line-height: 2.1 !important;
+  letter-spacing: 0.065em !important;
+}
+
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 768px) {
+  .biography-page {
+    padding: 120px 0 90px;
+  }
+
+  .biography-page__container {
+    width: min(calc(100% - 40px), 620px);
+  }
+
+  .biography-page__header {
+    margin-bottom: 72px;
+  }
+
+  .biography-page__label {
+    font-size: 10px;
+  }
+
+  .biography-page__intro {
+    width: 100%;
+  }
+
+  .biography-page__quote,
+  .biography-page__closing {
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  .biography-page__quote {
+    margin-bottom: 34px;
+  }
+
+  .biography-page__text {
+    font-size: 14px;
+    line-height: 2.15;
+  }
+
+  .biography-page__text + .biography-page__text {
+    margin-top: 26px;
+  }
+
+  .biography-page__closing {
+    margin-top: 42px;
+  }
+
+
+  /* =====================================
+     History
+  ===================================== */
+
+  .biography-page__history {
+    width: 100%;
+
+    margin-top: 110px;
+  }
+
+  .biography-page__chapter {
+    display: block;
+
+    padding: 56px 0;
+  }
+
+  .biography-page__chapter-title {
+    margin: 0 0 28px;
+
+    font-size: 12px;
+  }
+
+  .biography-page__chapter-body {
+    max-width: none;
+  }
+
+  .biography-page__chapter-body p {
+    font-size: 14px;
+    line-height: 2.15;
+  }
+
+  .biography-page__chapter-body p + p {
+    margin-top: 24px;
+  }
+
+  .biography-page__ending {
+    margin-top: 40px !important;
+
+    font-size: 15px !important;
+    line-height: 2.1 !important;
+  }
+}

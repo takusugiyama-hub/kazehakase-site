@@ -1,0 +1,69 @@
+[
+  {
+    "id": "lyric-001",
+    "text": [
+      "騒ぐな静かに強くなれと聴こえる",
+      "風のノイズに運ばれて"
+    ],
+    "songTitle": "風のノイズは僕たちの",
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/intl-ja/track/234KR8VyFRnx8WfQ4F9cya",
+      "appleMusic": "https://music.apple.com/jp/album/%E9%A2%A8%E3%81%AE%E3%83%8E%E3%82%A4%E3%82%BA%E3%81%AF%E5%83%95%E3%81%9F%E3%81%A1%E3%81%AE/1770264555?i=1770264597",
+      "lineMusic": "https://music.line.me/webapp/track/mt00000000202aaf41",
+      "amazonMusic": "https://music.amazon.co.jp/search/%E9%A2%A8%E3%81%AE%E3%83%8E%E3%82%A4%E3%82%BA%E3%81%AF%E5%83%95%E3%81%9F%E3%81%A1%E3%81%AE?filter=IsLibrary%7Cfalse&sc=none",
+      "youtubeMusic": "https://music.youtube.com/watch?v=jsffo-I9Kak"
+    },
+    "published": true
+  },
+  {
+    "id": "lyric-002",
+    "text": [
+      "昨今の現状でも流れてゆく淡い風",
+      "究極の避雷針が君の胸につきささる"
+    ],
+    "songTitle": "避雷針",
+    "streamingLinks": {
+      "spotify": "https://open.spotify.com/intl-ja/track/6U6gp8QomFX0D6TIZanWxD",
+      "appleMusic": "https://music.apple.com/jp/album/%E9%81%BF%E9%9B%B7%E9%87%9D/1729746907?i=1729746909",
+      "lineMusic": "https://music.line.me/webapp/track/mt000000001df652fb",
+      "amazonMusic": "https://music.amazon.co.jp/albums/B0CV79CTRJ?marketplaceId=A1VC38T7YXB528&musicTerritory=JP&ref=dm_sh_2U3hSKtRbNkZPuMbSimUoODb1&trackAsin=B0CV7P4JVQ",
+      "youtubeMusic": "https://music.youtube.com/watch?v=wiesm0vCr5I&si=LuhZnp1tJVw4QkiQ"
+    },
+    "published": true
+  },
+ {
+   "id": "lyric-003",
+   "text": [
+     "時折流す涙は",
+     "ちょっとしたスパイスになる",
+     "ああ　バラ色の人生"
+   ],
+   "songTitle": "バラ色の人生",
+   "streamingLinks": {
+     "spotify": "https://open.spotify.com/intl-ja/track/7CE21leFNukvBkUg2HixaC?si=12a5f792ac764df4",
+     "appleMusic": "https://music.apple.com/jp/song/%E3%83%90%E3%83%A9%E8%89%B2%E3%81%AE%E4%BA%BA%E7%94%9F/1729746980",
+     "lineMusic": "https://lin.ee/8l510wh",
+     "amazonMusic": "https://music.amazon.co.jp/albums/B0CV79CTRJ?marketplaceId=A1VC38T7YXB528&musicTerritory=JP&ref=dm_sh_BfFpv0OERxtdUBe2NdQyvEKDG&trackAsin=B0CV83PZY5",
+     "youtubeMusic": "https://music.youtube.com/watch?v=TeEeD9PcVz0&si=2djMKErZ-ZJwPk80"
+   },
+   "published": true
+ },
+ {
+   "id": "lyric-004",
+   "text": [
+     "なんとなく旅に出て道に迷ったら",
+     "風の歌を聴いてごらんよ"
+   ],
+   "songTitle": "風博士の風まかせ",
+   "streamingLinks": {
+     "spotify": "https://open.spotify.com/intl-ja/track/7h13Qvz7VQsF3Il4y3whVj?si=48a17491d6cd4d37",
+     "appleMusic": "https://music.apple.com/jp/song/%E9%A2%A8%E5%8D%9A%E5%A3%AB%E3%81%AE%E9%A2%A8%E3%81%BE%E3%81%8B%E3%81%9B/1737342628",
+     "lineMusic": "https://lin.ee/qwepbqY",
+     "amazonMusic": "https://music.amazon.co.jp/albums/B0CYT3JFQR?marketplaceId=A1VC38T7YXB528&musicTerritory=JP&ref=dm_sh_gTessPVjJCHaKRAZfNittPjq4&trackAsin=B0CYSW3SHF",
+     "youtubeMusic": "https://music.youtube.com/watch?v=6AXPtOUeJFM&si=0mwoifXcqyzRNsH2"
+   },
+   "published": true
+ }
+
+
+]

@@ -1,0 +1,773 @@
+/* =====================================
+   Live detail
+===================================== */
+
+.live-detail {
+  width: 100%;
+
+  color: #171717;
+  background: #f7f5f0;
+}
+
+
+/* =====================================
+   Shared
+===================================== */
+
+.live-detail__container {
+  width: min(1180px, calc(100% - 96px));
+  margin-inline: auto;
+}
+
+.live-detail__narrow {
+  width: min(720px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.live-detail__section {
+  padding: clamp(96px, 10vw, 160px) 0;
+}
+
+.live-detail__section-label {
+  margin: 0 0 36px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+}
+
+.live-detail__section-title {
+  margin: 0;
+
+  font-size: clamp(28px, 3.3vw, 48px);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+
+.live-detail__body {
+  font-size: 15px;
+  line-height: 2.2;
+  letter-spacing: 0.045em;
+}
+
+.live-detail__body p {
+  margin: 0;
+}
+
+.live-detail__body p + p {
+  margin-top: 24px;
+}
+
+
+/* =====================================
+   Hero
+===================================== */
+
+.live-detail__hero {
+  position: relative;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(360px, 0.65fr);
+
+  min-height: calc(100svh - 110px);
+
+  margin-top: 110px;
+
+  background: #eeeae2;
+}
+
+.live-detail__hero-image {
+  position: relative;
+
+  min-height: calc(100svh - 110px);
+
+  overflow: hidden;
+}
+
+.live-detail__hero-image img {
+  object-fit: cover;
+}
+
+.live-detail__hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 140px 7vw 100px;
+}
+
+.live-detail__eyebrow {
+  margin: 0 0 28px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  letter-spacing: 0.18em;
+}
+
+.live-detail__title {
+  margin: 0;
+
+  font-size: clamp(36px, 4.2vw, 64px);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.07em;
+}
+
+.live-detail__title span {
+  display: block;
+}
+
+.live-detail__catch {
+  margin: 32px 0 0;
+
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+
+  opacity: 0.7;
+}
+
+.live-detail__venue-name {
+  margin: 48px 0 0;
+
+  font-size: 24px;
+  letter-spacing: 0.08em;
+}
+
+.live-detail__hero-reservation {
+  display: inline-flex;
+  align-items: center;
+
+  width: max-content;
+
+  margin-top: 34px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+
+  color: inherit;
+  text-decoration: none;
+
+  opacity: 0.72;
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.live-detail__hero-reservation:hover,
+.live-detail__hero-reservation:focus-visible {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+
+/* =====================================
+   Introduction
+===================================== */
+
+.live-detail__intro {
+  text-align: center;
+}
+
+.live-detail__intro p {
+  margin: 0;
+}
+
+.live-detail__intro p + p {
+  margin-top: 30px;
+}
+
+.live-detail__lead {
+  font-size: clamp(20px, 2.2vw, 30px);
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+
+
+/* =====================================
+   About / Drawing
+===================================== */
+
+.live-detail__about-grid,
+.live-detail__feature-grid,
+.live-detail__info-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(260px, 0.8fr)
+    minmax(0, 1.2fr);
+
+  gap: clamp(60px, 8vw, 140px);
+
+  align-items: start;
+}
+
+
+/* =====================================
+   People
+===================================== */
+
+.live-detail__people {
+  overflow: hidden;
+}
+
+.live-detail__people-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: clamp(28px, 4vw, 60px);
+
+  margin-top: 18px;
+}
+
+.live-detail__person {
+  min-width: 0;
+}
+
+.live-detail__person-category {
+  margin: 0 0 16px;
+
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+
+  opacity: 0.62;
+}
+
+.live-detail__person-image {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 3 / 4;
+
+  overflow: hidden;
+
+  background: #e7e3da;
+
+  text-decoration: none;
+}
+
+.live-detail__person-image img {
+  object-fit: cover;
+
+  transition:
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 400ms ease;
+}
+
+.live-detail__person-image:hover img,
+.live-detail__person-image:focus-visible img {
+  transform: scale(1.015);
+  opacity: 0.92;
+}
+
+.live-detail__person-meta {
+  padding-top: 20px;
+}
+
+.live-detail__person-name {
+  margin: 0;
+
+  font-size: clamp(19px, 1.7vw, 24px);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+.live-detail__person-role {
+  margin: 7px 0 0;
+
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+
+  opacity: 0.68;
+}
+
+.live-detail__person-note {
+  margin: 14px 0 0;
+
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.045em;
+}
+
+.live-detail__person-link {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: 18px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+
+  text-decoration: none;
+
+  opacity: 0.72;
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.live-detail__person-link:hover,
+.live-detail__person-link:focus-visible {
+  opacity: 1;
+
+  transform: translateX(3px);
+}
+
+
+/* =====================================
+   Media sections
+===================================== */
+
+.live-detail__media-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(0, 0.95fr);
+
+  gap: clamp(56px, 7vw, 110px);
+
+  align-items: center;
+}
+
+.live-detail__media-grid--reverse
+  .live-detail__media-image {
+  order: 2;
+}
+
+.live-detail__media-grid--reverse
+  .live-detail__media-copy {
+  order: 1;
+}
+
+.live-detail__media-image {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  background: #ddd;
+}
+
+.live-detail__media-image img {
+  object-fit: cover;
+}
+
+.live-detail__media-copy .live-detail__body {
+  margin-top: 34px;
+}
+
+
+/* =====================================
+   Information
+===================================== */
+
+.live-detail__information {
+  background: rgba(235, 232, 223, 0.42);
+}
+
+.live-detail__info-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(240px, 0.75fr)
+    minmax(0, 1.25fr);
+
+  gap: clamp(60px, 8vw, 140px);
+
+  align-items: start;
+}
+
+.live-detail__info-content {
+  padding: 4px 0 6px;
+}
+
+
+/* Date */
+
+.live-detail__info-date {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 2.8vw, 40px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.055em;
+}
+
+.live-detail__info-date span {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+
+/* Place */
+
+.live-detail__info-place {
+  margin: 24px 0 0;
+
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0.06em;
+}
+
+.live-detail__info-place a {
+  color: inherit;
+
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(20, 20, 20, 0.32);
+
+  transition: border-color 200ms ease;
+}
+
+.live-detail__info-place a:hover,
+.live-detail__info-place a:focus-visible {
+  border-color: currentColor;
+}
+
+.live-detail__external {
+  display: inline-block;
+
+  margin-left: 7px;
+
+  font-size: 10px;
+
+  opacity: 0.6;
+}
+
+
+/* Artists */
+
+.live-detail__info-artists {
+  margin: 28px 0 0;
+
+  font-size: 13px;
+  line-height: 2;
+  letter-spacing: 0.055em;
+}
+
+.live-detail__info-artists span {
+  margin-inline: 5px;
+
+  opacity: 0.45;
+}
+
+
+/* Time / Price */
+
+.live-detail__info-meta {
+  margin-top: 28px;
+  padding-top: 22px;
+
+  border-top: 1px solid rgba(20, 20, 20, 0.14);
+}
+
+.live-detail__info-meta p {
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+}
+
+.live-detail__info-meta p + p {
+  margin-top: 4px;
+}
+
+.live-detail__info-meta span {
+  margin-inline: 5px;
+
+  opacity: 0.45;
+}
+
+
+/* =====================================
+   Reservation
+===================================== */
+
+.live-detail__reservation {
+  text-align: center;
+}
+
+.live-detail__reservation-intro {
+  margin: 30px 0 0;
+
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.05em;
+}
+
+.live-detail__reservation-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 220px;
+  min-height: 48px;
+
+  margin-top: 38px;
+  padding: 10px 28px;
+
+  color: #f7f5f0;
+  background: #222;
+
+  border: 1px solid #222;
+
+  font-size: 12px;
+  letter-spacing: 0.1em;
+
+  text-decoration: none;
+
+  transition:
+    color 200ms ease,
+    background-color 200ms ease;
+}
+
+.live-detail__reservation-link:hover,
+.live-detail__reservation-link:focus-visible {
+  color: #222;
+  background: transparent;
+}
+
+
+/* =====================================
+   Tablet
+===================================== */
+
+@media (max-width: 900px) {
+  .live-detail__container {
+    width: min(calc(100% - 56px), 820px);
+  }
+
+  /* Hero */
+
+  .live-detail__hero {
+    grid-template-columns: 1fr;
+  }
+
+  .live-detail__hero-image {
+    min-height: 68svh;
+  }
+
+  .live-detail__hero-copy {
+    padding: 64px 40px 80px;
+  }
+
+  /* About / Drawing */
+
+  .live-detail__about-grid,
+  .live-detail__feature-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  /* People */
+
+  .live-detail__people-grid {
+    gap: 24px;
+  }
+
+  /* Media */
+
+  .live-detail__media-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .live-detail__media-grid--reverse
+    .live-detail__media-image,
+  .live-detail__media-grid--reverse
+    .live-detail__media-copy {
+    order: initial;
+  }
+
+  /* Information */
+
+  .live-detail__info-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 768px) {
+  .live-detail__container,
+  .live-detail__narrow {
+    width: min(calc(100% - 40px), 620px);
+  }
+
+  .live-detail__section {
+    padding: 76px 0;
+  }
+
+  /* =====================================
+     Hero
+  ===================================== */
+
+  .live-detail__hero {
+    margin-top: 82px;
+
+    min-height: auto;
+  }
+
+  .live-detail__hero-image {
+    min-height: 62svh;
+  }
+
+  .live-detail__hero-copy {
+    padding: 48px 20px 64px;
+  }
+
+  .live-detail__eyebrow {
+    margin-bottom: 20px;
+
+    font-size: 10px;
+  }
+
+  .live-detail__title {
+    font-size: clamp(30px, 9vw, 44px);
+    line-height: 1.5;
+  }
+
+  .live-detail__catch {
+    margin-top: 24px;
+
+    font-size: 12px;
+  }
+
+  .live-detail__venue-name {
+    margin-top: 32px;
+  }
+
+  .live-detail__hero-reservation {
+  margin-top: 26px;
+
+  font-size: 10px;
+}
+
+  /* =====================================
+     Shared
+  ===================================== */
+
+  .live-detail__section-label {
+    margin-bottom: 26px;
+  }
+
+  .live-detail__section-title {
+    font-size: clamp(26px, 8vw, 36px);
+  }
+
+  .live-detail__lead {
+    font-size: 19px;
+  }
+
+  .live-detail__body {
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  /* =====================================
+     People
+  ===================================== */
+
+  .live-detail__people-grid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .live-detail__person-category {
+    margin-bottom: 12px;
+  }
+
+  .live-detail__person-image {
+    aspect-ratio: 3 / 4;
+  }
+
+  .live-detail__person-meta {
+    padding-top: 16px;
+  }
+
+  .live-detail__person-name {
+    font-size: 20px;
+  }
+
+  .live-detail__person-role {
+    font-size: 11px;
+  }
+
+  /* =====================================
+     Media
+  ===================================== */
+
+  .live-detail__media-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* =====================================
+     Information
+  ===================================== */
+
+  .live-detail__info-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .live-detail__info-content {
+    padding: 0;
+  }
+
+  .live-detail__info-date {
+    font-size: 30px;
+  }
+
+  .live-detail__info-date span {
+    font-size: 10px;
+  }
+
+  .live-detail__info-place {
+    margin-top: 20px;
+
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .live-detail__info-artists {
+    margin-top: 24px;
+
+    font-size: 12px;
+    line-height: 2;
+  }
+
+  .live-detail__info-meta {
+    margin-top: 24px;
+    padding-top: 18px;
+  }
+
+  .live-detail__info-meta p {
+    font-size: 11px;
+    line-height: 1.9;
+  }
+}

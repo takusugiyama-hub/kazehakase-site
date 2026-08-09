@@ -1,0 +1,57 @@
+/* =====================================
+   Streaming service links
+===================================== */
+
+.streaming-service-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 16px;
+}
+
+.streaming-service-links__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  color: inherit;
+
+  text-decoration: none;
+
+
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.streaming-service-links__item img {
+  display: block;
+
+  width: 24px;
+  height: 24px;
+
+  object-fit: contain;
+}
+
+.streaming-service-links__item:hover,
+.streaming-service-links__item:focus-visible {
+  opacity: 1;
+
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .streaming-service-links {
+    gap: 14px;
+  }
+
+  .streaming-service-links__item {
+    width: 32px;
+    height: 32px;
+  }
+}

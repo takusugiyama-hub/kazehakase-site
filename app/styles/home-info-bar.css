@@ -1,0 +1,496 @@
+/* =====================================
+   Home information bar
+===================================== */
+
+.home-info-bar {
+  position: relative;
+  z-index: 30;
+
+  width: 100%;
+
+  color: #1b1b1b;
+  background: rgba(248, 247, 243, 0.98);
+
+  border-top: 1px solid rgba(20, 20, 20, 0.14);
+  border-bottom: 1px solid rgba(20, 20, 20, 0.12);
+  flex: 0 0 auto;
+}
+
+.home-info-bar__inner {
+  display: grid;
+
+  grid-template-columns:
+    minmax(250px, 0.82fr)
+    minmax(430px, 1.72fr)
+    minmax(300px, 0.9fr);
+
+  align-items: start;
+  gap: clamp(38px, 4vw, 72px);
+
+  width: min(1340px, calc(100% - 96px));
+
+  margin-inline: auto;
+  padding: 22px 0 32px;
+}
+
+
+/* =====================================
+   Shared typography
+===================================== */
+
+.home-info-bar__label {
+  margin: 0 0 7px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+}
+
+
+/* =====================================
+   Schedule
+===================================== */
+
+.home-info-bar__schedule {
+  min-width: 0;
+}
+
+.home-info-bar__date {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+
+  margin: 0;
+}
+
+.home-info-bar__date-main {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(27px, 2.25vw, 38px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.055em;
+
+  white-space: nowrap;
+}
+
+.home-info-bar__weekday {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+}
+
+.home-info-bar__venue,
+.home-info-bar__time,
+.home-info-bar__price-line,
+.home-info-bar__empty {
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.home-info-bar__venue {
+  margin: 9px 0 0;
+
+  letter-spacing: 0.075em;
+}
+
+.home-info-bar__time {
+  margin: 5px 0 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.1em;
+}
+
+.home-info-bar__price-line {
+  margin: 6px 0 0;
+
+  letter-spacing: 0.065em;
+
+  opacity: 0.82;
+}
+
+.home-info-bar__empty {
+  margin: 9px 0 0;
+
+  letter-spacing: 0.075em;
+}
+
+
+/* =====================================
+   Live details
+===================================== */
+
+.home-info-bar__live-details {
+  min-width: 0;
+
+  padding-top: 21px;
+}
+
+.home-info-bar__live-title {
+  margin: 0;
+
+  font-size: clamp(16px, 1.3vw, 21px);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.065em;
+}
+
+.home-info-bar__artists {
+  margin: 7px 0 0;
+
+  font-size: 11px;
+  line-height: 1.65;
+  letter-spacing: 0.055em;
+}
+
+.home-info-bar__live-action {
+  margin-top: 14px;
+}
+
+.home-info-bar__live-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 190px;
+  min-height: 38px;
+
+  padding: 7px 24px;
+
+  color: #f8f7f3;
+  background: #222;
+
+  border: 1px solid #222;
+
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.095em;
+
+  text-decoration: none;
+
+  transition:
+    color 200ms ease,
+    background-color 200ms ease;
+}
+
+.home-info-bar__live-button:hover,
+.home-info-bar__live-button:focus-visible {
+  color: #222;
+  background: transparent;
+}
+
+.home-info-bar__status {
+  display: inline-block;
+
+  margin: 0;
+  padding-bottom: 3px;
+
+  border-bottom: 1px solid currentColor;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+/* =====================================
+   Live visual
+===================================== */
+
+.home-info-bar__live-details--with-image {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 22px;
+
+  align-items: start;
+}
+
+.home-info-bar__visual {
+  position: relative;
+
+  width: 180px;
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background: #ece8de;
+}
+
+.home-info-bar__visual img {
+  object-fit: cover;
+}
+
+.home-info-bar__live-copy {
+  min-width: 0;
+}
+
+/* =====================================
+   Listen
+===================================== */
+
+.home-info-bar__listen {
+  min-width: 0;
+}
+
+.home-info-bar__release {
+  display: grid;
+
+  grid-template-columns: 72px minmax(0, 1fr);
+
+  align-items: center;
+  gap: 16px;
+}
+
+.home-info-bar__cover {
+  position: relative;
+
+  width: 72px;
+  aspect-ratio: 1;
+
+  overflow: hidden;
+
+  background: #ddd;
+}
+
+.home-info-bar__cover img {
+  object-fit: cover;
+}
+
+.home-info-bar__release-details {
+  min-width: 0;
+}
+
+.home-info-bar__release-title {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0.07em;
+}
+
+.home-info-bar__release-subtitle {
+  margin: 2px 0 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+}
+
+.home-info-bar__listen-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 100px;
+  min-height: 32px;
+
+  margin-top: 11px;
+  padding: 5px 14px;
+
+  color: #222;
+  background: transparent;
+
+  border: 1px solid rgba(20, 20, 20, 0.55);
+
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+
+  text-decoration: none;
+
+  transition:
+    color 200ms ease,
+    background-color 200ms ease;
+}
+
+.home-info-bar__listen-button:hover,
+.home-info-bar__listen-button:focus-visible {
+  color: #f8f7f3;
+  background: #222;
+}
+
+
+/* =====================================
+   Medium screens
+===================================== */
+
+@media (max-width: 1100px) {
+  .home-info-bar__inner {
+    grid-template-columns:
+      minmax(220px, 0.8fr)
+      minmax(340px, 1.5fr)
+      minmax(250px, 0.9fr);
+
+    gap: 30px;
+
+    width: min(calc(100% - 56px), 1080px);
+  }
+
+  .home-info-bar__release {
+    grid-template-columns: 64px minmax(0, 1fr);
+
+    gap: 12px;
+  }
+
+  .home-info-bar__cover {
+    width: 64px;
+  }
+}
+
+
+/* =====================================
+   Tablet
+===================================== */
+
+@media (max-width: 900px) {
+  .home-info-bar__inner {
+    grid-template-columns: 0.9fr 1.35fr;
+
+    gap: 28px 36px;
+
+    width: min(calc(100% - 48px), 820px);
+
+    padding: 28px 0 34px;
+  }
+
+  .home-info-bar__live-details {
+    padding-top: 21px;
+  }
+
+  .home-info-bar__listen {
+    grid-column: 1 / -1;
+
+    padding-top: 22px;
+
+    border-top: none ;
+  }
+
+  .home-info-bar__release {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .home-info-bar__cover {
+    width: 72px;
+  }
+
+  .home-info-bar__live-details--with-image {
+  grid-template-columns: 150px minmax(0,1fr);
+  gap: 18px;
+  }
+
+  .home-info-bar__visual {
+  width: 150px;
+  }
+}
+
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 768px) {
+  .home-info-bar__inner {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+
+    width: min(calc(100% - 40px), 620px);
+
+    padding: 30px 0 38px;
+  }
+
+  /* Schedule */
+
+  .home-info-bar__schedule {
+    padding-bottom: 14px;
+  }
+
+  .home-info-bar__date-main {
+    font-size: clamp(28px, 8.8vw, 40px);
+  }
+
+  .home-info-bar__venue,
+  .home-info-bar__time,
+  .home-info-bar__price-line,
+  .home-info-bar__empty {
+    font-size: 12px;
+  }
+
+  .home-info-bar__price-line {
+    margin-top: 6px;
+  }
+
+  /* Live details */
+
+  .home-info-bar__live-details {
+    padding: 24px 0 27px;
+
+    border-top: none;
+  }
+
+  .home-info-bar__live-title {
+    font-size: 19px;
+  }
+
+  .home-info-bar__artists {
+    font-size: 12px;
+  }
+
+  .home-info-bar__live-button {
+    width: 100%;
+    min-height: 48px;
+
+    font-size: 12px;
+  }
+
+  .home-info-bar__live-details--with-image {
+  display: block;
+}
+
+.home-info-bar__visual {
+  width: 100%;
+  max-width: 320px;
+
+  margin-bottom: 18px;
+}
+
+  /* Listen */
+
+  .home-info-bar__listen {
+    grid-column: auto;
+
+    padding-top: 24px;
+
+    border-top: 1px solid rgba(20, 20, 20, 0.14);
+  }
+
+  .home-info-bar__release {
+    grid-template-columns: 82px minmax(0, 1fr);
+
+    gap: 18px;
+  }
+
+  .home-info-bar__cover {
+    width: 82px;
+  }
+
+  .home-info-bar__release-title {
+    font-size: 15px;
+  }
+
+  .home-info-bar__release-subtitle {
+    font-size: 11px;
+  }
+
+  .home-info-bar__listen-button {
+    min-width: 120px;
+    min-height: 40px;
+
+    font-size: 11px;
+  }
+}

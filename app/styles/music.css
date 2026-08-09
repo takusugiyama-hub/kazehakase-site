@@ -1,0 +1,507 @@
+/* =====================================
+   Music page
+===================================== */
+
+.music-page {
+  min-height: 100svh;
+
+  padding: 170px 0 130px;
+
+  color: #171717;
+  background: #f7f5f0;
+}
+
+.music-page__container {
+  width: min(1180px, calc(100% - 96px));
+
+  margin-inline: auto;
+}
+
+
+/* =====================================
+   Header
+===================================== */
+
+.music-page__header {
+  margin-bottom: clamp(70px, 8vw, 120px);
+}
+
+.music-page__label,
+.music-page__section-label {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+}
+
+
+/* =====================================
+   Sections
+===================================== */
+
+.music-page__section + .music-page__section {
+  margin-top: clamp(120px, 14vw, 200px);
+}
+
+.music-page__section-label {
+  margin-bottom: 40px;
+}
+
+
+/* =====================================
+   Albums
+===================================== */
+
+.music-page__albums {
+  display: grid;
+
+  gap: clamp(110px, 13vw, 200px);
+}
+
+.music-page__album {
+  display: grid;
+  grid-template-columns:
+    minmax(320px, 0.95fr)
+    minmax(0, 1.05fr);
+
+  gap: clamp(56px, 8vw, 120px);
+
+  align-items: start;
+}
+
+
+/* =====================================
+   Album cover
+===================================== */
+
+.music-page__cover {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 1;
+
+  overflow: hidden;
+
+  background: #e7e3da;
+}
+
+.music-page__cover img,
+.music-page__compilation-cover img {
+  object-fit: cover;
+}
+
+.music-page__cover-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+
+  opacity: 0.4;
+}
+
+
+/* =====================================
+   Album information
+===================================== */
+
+.music-page__album-content {
+  padding-top: 8px;
+}
+
+.music-page__subtitle {
+  margin: 0 0 18px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+
+  opacity: 0.62;
+}
+
+.music-page__title {
+  margin: 0;
+
+  font-size: clamp(27px, 3vw, 42px);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.065em;
+}
+
+.music-page__date {
+  margin: 22px 0 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+
+  opacity: 0.68;
+}
+
+
+/* =====================================
+   Tracklist
+===================================== */
+
+.music-page__tracklist {
+  margin-top: 36px;
+}
+
+.music-page__tracklist-label {
+  margin: 0 0 16px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+
+  opacity: 0.6;
+}
+
+.music-page__tracks {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.music-page__tracks li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+
+  gap: 10px;
+
+  padding: 5px 0;
+
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+}
+
+.music-page__track-number {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+
+  opacity: 0.45;
+}
+
+
+/* =====================================
+   Album note
+===================================== */
+
+.music-page__note {
+  max-width: 520px;
+
+  margin: 34px 0 0;
+
+  font-size: 14px;
+  line-height: 2.1;
+  letter-spacing: 0.045em;
+  white-space: pre-line;
+
+}
+
+
+/* =====================================
+   Listen
+===================================== */
+
+.music-page__listen {
+  margin-top: 42px;
+  padding-top: 22px;
+
+  border-top: 1px solid rgba(20, 20, 20, 0.14);
+}
+
+.music-page__listen-label {
+  margin: 0 0 14px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+
+  opacity: 0.64;
+}
+
+.music-page__links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px 24px;
+}
+
+.music-page__links a,
+.music-page__compilation-links a {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+
+  color: inherit;
+  text-decoration: none;
+
+  opacity: 0.72;
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.music-page__links a:hover,
+.music-page__links a:focus-visible,
+.music-page__compilation-links a:hover,
+.music-page__compilation-links a:focus-visible {
+  opacity: 1;
+}
+
+
+/* =====================================
+   Compilation
+===================================== */
+
+.music-page__compilations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 64px 70px;
+}
+
+.music-page__compilation {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+
+  gap: 26px;
+
+  align-items: start;
+}
+
+.music-page__compilation-cover {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 1;
+
+  overflow: hidden;
+
+  background: #e7e3da;
+}
+
+.music-page__compilation-type {
+  margin: 0 0 8px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+
+  opacity: 0.55;
+}
+
+.music-page__compilation-title {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+}
+
+.music-page__compilation-date {
+  margin: 9px 0 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  letter-spacing: 0.09em;
+
+  opacity: 0.55;
+}
+
+.music-page__participation {
+  margin: 14px 0 0;
+
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+}
+
+.music-page__compilation-note {
+  margin: 12px 0 0;
+
+  font-size: 12px;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+
+  opacity: 0.78;
+}
+
+.music-page__compilation-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px 16px;
+
+  margin-top: 16px;
+}
+
+
+/* =====================================
+   Other works
+===================================== */
+
+.music-page__other-list {
+  border-top: 1px solid rgba(20, 20, 20, 0.14);
+}
+
+.music-page__other-item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+
+  gap: 30px;
+
+  padding: 24px 0;
+
+  border-bottom: 1px solid rgba(20, 20, 20, 0.14);
+}
+
+.music-page__other-date {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.1em;
+
+  opacity: 0.6;
+}
+
+.music-page__other-title {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.055em;
+}
+
+.music-page__other-participation,
+.music-page__other-note {
+  margin: 8px 0 0;
+
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+.music-page__other-note {
+  opacity: 0.7;
+}
+
+
+/* =====================================
+   Empty
+===================================== */
+
+.music-page__empty {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 2;
+}
+
+
+/* =====================================
+   Tablet
+===================================== */
+
+@media (max-width: 900px) {
+  .music-page__container {
+    width: min(calc(100% - 56px), 820px);
+  }
+
+  .music-page__album {
+    grid-template-columns:
+      minmax(280px, 0.9fr)
+      minmax(0, 1.1fr);
+
+    gap: 48px;
+  }
+
+  .music-page__compilations {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 768px) {
+  .music-page {
+    padding: 120px 0 90px;
+  }
+
+  .music-page__container {
+    width: min(calc(100% - 40px), 620px);
+  }
+
+  .music-page__header {
+    margin-bottom: 72px;
+  }
+
+  .music-page__label,
+  .music-page__section-label {
+    font-size: 10px;
+  }
+
+  .music-page__section-label {
+    margin-bottom: 28px;
+  }
+
+  .music-page__section + .music-page__section {
+    margin-top: 110px;
+  }
+
+  .music-page__albums {
+    gap: 110px;
+  }
+
+  .music-page__album {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+  .music-page__album-content {
+    padding-top: 0;
+  }
+
+  .music-page__title {
+    font-size: 28px;
+  }
+
+  .music-page__note {
+    font-size: 13px;
+    line-height: 2;
+  }
+
+  .music-page__compilation {
+    grid-template-columns: 110px 1fr;
+
+    gap: 20px;
+  }
+
+  .music-page__other-item {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+
+    padding: 20px 0;
+  }
+}
