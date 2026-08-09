@@ -41,7 +41,7 @@
     "reservationUrl": "",
     "soldOut": false,
     "cancelled": false,
-    "published": true
+    "published": false
   },
   {
     "id": "live-20241103",
@@ -63,6 +63,6 @@
     "reservationUrl": "",
     "soldOut": false,
     "cancelled": false,
-    "published": true
+    "published": false
   }
 ]
