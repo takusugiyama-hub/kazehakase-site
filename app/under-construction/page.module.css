@@ -1,0 +1,82 @@
+:global(header),
+:global(footer) {
+  display: none !important;
+}
+
+.page {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: #f7f5f0;
+  color: #171717;
+}
+
+.inner {
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+}
+
+.logo {
+  width: auto;
+  height: 72px;
+  object-fit: contain;
+  margin-bottom: 56px;
+}
+
+.english {
+  margin: 0 0 40px;
+  font-family:
+    "Times New Roman",
+    "Yu Mincho",
+    "YuMincho",
+    "Hiragino Mincho ProN",
+    serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  opacity: 0.55;
+}
+
+.message {
+  font-family:
+    "Shippori Mincho",
+    "Yu Mincho",
+    "YuMincho",
+    "Hiragino Mincho ProN",
+    serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2.2;
+  letter-spacing: 0.08em;
+}
+
+.message p {
+  margin: 0;
+}
+
+.message p + p {
+  margin-top: 24px;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 40px 24px;
+  }
+
+  .logo {
+    height: 60px;
+    margin-bottom: 48px;
+  }
+
+  .english {
+    margin-bottom: 36px;
+    font-size: 10px;
+  }
+
+  .message {
+    font-size: 14px;
+  }
+}
