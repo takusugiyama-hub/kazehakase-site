@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  useEffect,
-  useState,
-} from "react";
+import { useState } from "react";
 
 import lyricsData from "@/data/lyrics.json";
 
@@ -22,30 +19,24 @@ const publishedLyrics = (
 );
 
 export function RandomLyric() {
-  const [lyric, setLyric] =
-    useState<Lyric | null>(
-      publishedLyrics[0] ?? null,
-    );
+  const [lyric] =
+    useState<Lyric | null>(() => {
+      if (
+        publishedLyrics.length === 0
+      ) {
+        return null;
+      }
 
-  useEffect(() => {
-    if (
-      publishedLyrics.length <= 1
-    ) {
-      return;
-    }
+      const randomIndex =
+        Math.floor(
+          Math.random() *
+            publishedLyrics.length,
+        );
 
-    const randomIndex =
-      Math.floor(
-        Math.random() *
-          publishedLyrics.length,
-      );
-
-    setLyric(
-      publishedLyrics[
+      return publishedLyrics[
         randomIndex
-      ],
-    );
-  }, []);
+      ];
+    });
 
   if (!lyric) {
     return null;
@@ -64,27 +55,27 @@ export function RandomLyric() {
 
   return (
     <div className="random-lyric">
-      <div className="random-lyric__copy">
-        <p className="random-lyric__text">
-          {lyric.text.map(
-            (line, index) => (
-              <span
-                key={`${lyric.id}-${index}`}
-                className="random-lyric__line"
-                style={{
-                  animationDelay: `${index * 700}ms`,
-                }}
-              >
-                {line}
-              </span>
-            ),
-          )}
-        </p>
+      <div className="random-lyric__text">
+        {lyric.text.map(
+          (line, index) => (
+            <span
+              key={`${lyric.id}-${index}`}
+              className="random-lyric__line"
+              style={{
+                animationDelay:
+                  `${index * 700}ms`,
+              }}
+            >
+              {line}
+            </span>
+          ),
+        )}
 
         <p
           className="random-lyric__title"
           style={{
-            animationDelay: `${titleDelay}ms`,
+            animationDelay:
+              `${titleDelay}ms`,
           }}
         >
           「{lyric.songTitle}」
@@ -126,7 +117,8 @@ export function RandomLyric() {
           <div
             className="random-lyric__streaming random-lyric__streaming--mobile"
             style={{
-              animationDelay: `${mobileStreamingDelay}ms`,
+              animationDelay:
+                `${mobileStreamingDelay}ms`,
             }}
           >
             <p className="random-lyric__mobile-label">

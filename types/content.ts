@@ -53,12 +53,28 @@ export type LiveEvent = {
   published: boolean;
 };
 
+export type MusicCategory =
+  | "album"
+  | "compilation"
+  | "other";
+
 export type MusicRelease = {
   id: string;
+
+  category: MusicCategory;
+
   title: string;
-  subtitle: string;
-  coverImage: string;
-  listeningUrl: string;
-  order: number;
+  subtitle?: string;
+
+  releaseDate?: string;
+  coverImage?: string;
+
+  tracks?: string[];
+
+  links?: StreamingLinks;
+
+  participation?: string;
+  note?: string;
+
   published: boolean;
 };

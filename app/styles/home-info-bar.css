@@ -89,8 +89,7 @@
 
 .home-info-bar__venue,
 .home-info-bar__time,
-.home-info-bar__price-line,
-.home-info-bar__empty {
+.home-info-bar__price-line {
   font-size: 11px;
   line-height: 1.55;
 }
@@ -114,12 +113,6 @@
   letter-spacing: 0.065em;
 
   opacity: 0.82;
-}
-
-.home-info-bar__empty {
-  margin: 9px 0 0;
-
-  letter-spacing: 0.075em;
 }
 
 
@@ -651,11 +644,10 @@
   .home-info-bar__date-main {
     font-size: clamp(28px, 8.8vw, 40px);
   }
-
+  
   .home-info-bar__venue,
   .home-info-bar__time,
-  .home-info-bar__price-line,
-  .home-info-bar__empty {
+  .home-info-bar__price-line {
     font-size: 12px;
   }
 

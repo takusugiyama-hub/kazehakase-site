@@ -6,30 +6,8 @@ import { useSearchParams } from "next/navigation";
 import livesData from "@/data/lives.json";
 
 import { ReservationForm } from "@/components/live/ReservationForm";
-
+import { formatEventDate } from "@/lib/date";
 import type { LiveEvent } from "@/types/content";
-
-function formatEventDate(date: string) {
-  const [year, month, day] =
-    date.split("-").map(Number);
-
-  const parsedDate = new Date(
-    Date.UTC(year, month - 1, day),
-  );
-
-  const weekday =
-    new Intl.DateTimeFormat("en-US", {
-      weekday: "short",
-      timeZone: "UTC",
-    })
-      .format(parsedDate)
-      .toUpperCase();
-
-  return `${year}.${String(month).padStart(
-    2,
-    "0",
-  )}.${String(day).padStart(2, "0")} ${weekday}`;
-}
 
 export function ReservationPageClient() {
   const searchParams = useSearchParams();

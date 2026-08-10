@@ -63,7 +63,63 @@
      "youtubeMusic": "https://music.youtube.com/watch?v=6AXPtOUeJFM&si=0mwoifXcqyzRNsH2"
    },
    "published": true
+ },
+ {
+   "id": "lyric-005",
+   "text": [
+     "夜のカヌーに　ふたりどこまで",
+     "風に揺られて　星の砂浜",
+     "耳をすませば　夜のささやき",
+     "このままふたり　ゆったりいこうか"
+   ],
+   "songTitle": "夜のカヌー",
+   "streamingLinks": {
+     "spotify": "https://open.spotify.com/intl-ja/track/7vSuPvUybrvUa5vlwq83vA?si=63dc276b20af4063",
+     "appleMusic": "",
+     "lineMusic": "",
+     "amazonMusic": "",
+     "youtubeMusic": ""
+   },
+   "published": true
  }
+ ,
+ {
+   "id": "lyric-006",
+   "text": [
+     "街のあかりが　消えてなくなれば",
+     "夜空の星に　名前をつけよう",
+     "さあ　おやすみ"
+   ],
+   "songTitle": "はじまりの歌",
+   "streamingLinks": {
+     "spotify": "https://open.spotify.com/intl-ja/track/7DTDNmtBU1PB85yF93o2Id?si=7e4776b60eee4f55",
+     "appleMusic": "",
+     "lineMusic": "",
+     "amazonMusic": "",
+     "youtubeMusic": ""
+   },
+   "published": true
+ }
+ ,
+ {
+   "id": "lyric-006",
+   "text": [
+     "夜空に浮かぶ星をひとつ手にとって",
+     "あなたと踊る夜の風景"
+   ],
+   "songTitle": "夜の風景",
+   "streamingLinks": {
+     "spotify": "",
+     "appleMusic": "",
+     "lineMusic": "",
+     "amazonMusic": "",
+     "youtubeMusic": ""
+   },
+   "published": true
+ }
+
+
+
 
 
 ]

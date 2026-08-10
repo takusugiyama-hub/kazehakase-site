@@ -7,33 +7,9 @@ import {
   type StreamingServiceUrls,
 } from "@/components/music/StreamingServiceLinks";
 
-
-type MusicCategory =
-  | "album"
-  | "compilation"
-  | "other";
-
-
-type MusicRelease = {
-  id: string;
-
-  category: MusicCategory;
-
-  title: string;
-  subtitle?: string;
-
-  releaseDate?: string;
-  coverImage?: string;
-
-  tracks?: string[];
-
-  links?: StreamingServiceUrls;
-
-  participation?: string;
-  note?: string;
-
-  published: boolean;
-};
+import type {
+  MusicRelease,
+} from "@/types/content";
 
 
 function formatReleaseDate(

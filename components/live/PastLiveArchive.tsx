@@ -2,22 +2,12 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-
+import { formatLiveDate } from "@/lib/date";
 import type { LiveEvent } from "@/types/content";
 
 type Props = {
   lives: LiveEvent[];
 };
-
-function formatLiveDate(date: string) {
-  const [year, month, day] =
-    date.split("-").map(Number);
-
-  return `${year}.${String(month).padStart(
-    2,
-    "0",
-  )}.${String(day).padStart(2, "0")}`;
-}
 
 export function PastLiveArchive({
   lives,
@@ -134,9 +124,7 @@ export function PastLiveArchive({
                       const content = (
                         <>
                           <p className="live-page__past-date">
-                            {formatLiveDate(
-                              live.date,
-                            )}
+                            {formatLiveDate(live.date).date}
                           </p>
 
                           <p className="live-page__past-place">

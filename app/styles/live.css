@@ -1,73 +1,4 @@
-/* =====================================
-Latest live
-===================================== */
 
-.latest-live {
-  padding: 96px 0;
-}
-
-.latest-live__title {
-  margin: 0 0 32px;
-
-  font-size: clamp(26px, 4vw, 48px);
-  font-weight: 400;
-}
-
-.latest-live__details {
-  display: grid;
-  gap: 12px;
-
-  margin: 0;
-}
-
-.latest-live__details div {
-  display: grid;
-  grid-template-columns: 90px 1fr;
-}
-
-.latest-live__details dt {
-  font-size: 12px;
-  letter-spacing: 0.12em;
-}
-
-.latest-live__details dd {
-  margin: 0;
-}
-
-.latest-live__reservation {
-  display: inline-block;
-
-  margin-top: 32px;
-  padding-bottom: 4px;
-
-  border-bottom: 1px solid currentColor;
-
-  text-decoration: none;
-}
-
-.latest-live__status {
-  margin-top: 32px;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 13px;
-  letter-spacing: 0.12em;
-}
-
-
-/* =====================================
-Mobile
-===================================== */
-
-@media (max-width: 768px) {
-  .latest-live {
-    padding: 72px 0;
-  }
-
-  .latest-live__details div {
-    grid-template-columns: 72px 1fr;
-    gap: 12px;
-  }
-}
 
 
 /* =====================================
@@ -216,16 +147,6 @@ Upcoming live
   font-size: 14px;
   line-height: 1.8;
   letter-spacing: 0.06em;
-}
-
-.live-page__area {
-  margin: 4px 0 0;
-
-  font-size: 11px;
-  line-height: 1.7;
-  letter-spacing: 0.05em;
-
-  opacity: 0.62;
 }
 
 .live-page__address {
