@@ -1,6 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import {
+  useEffect,
+  useState,
+} from "react";
 
 import lyricsData from "@/data/lyrics.json";
 
@@ -19,24 +22,34 @@ const publishedLyrics = (
 );
 
 export function RandomLyric() {
-  const [lyric] =
-    useState<Lyric | null>(() => {
-      if (
-        publishedLyrics.length === 0
-      ) {
-        return null;
-      }
+  const [lyric, setLyric] =
+    useState<Lyric | null>(null);
 
+  useEffect(() => {
+    if (
+      publishedLyrics.length === 0
+    ) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
       const randomIndex =
         Math.floor(
           Math.random() *
             publishedLyrics.length,
         );
 
-      return publishedLyrics[
-        randomIndex
-      ];
-    });
+      setLyric(
+        publishedLyrics[
+          randomIndex
+        ],
+      );
+    }, 0);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
 
   if (!lyric) {
     return null;
