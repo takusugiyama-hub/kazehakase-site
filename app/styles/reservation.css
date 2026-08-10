@@ -1,5 +1,5 @@
 /* =====================================
-   Reservation page
+Reservation page
 ===================================== */
 
 .reservation-page {
@@ -19,15 +19,15 @@
 
 
 /* =====================================
-   Header
+Header
 ===================================== */
 
 .reservation-page__header {
-  margin-bottom: 72px;
+  margin-bottom: 32px;
 }
 
 .reservation-page__label {
-  margin: 0 0 24px;
+  margin: 0 0 18px;
 
   font-family: Georgia, "Times New Roman", serif;
   font-size: 11px;
@@ -46,15 +46,15 @@
 
 
 /* =====================================
-   Event
+Event
 ===================================== */
 
 .reservation-page__event {
-  margin-top: 48px;
-  padding: 30px 0;
+  margin-top: 32px;
+  padding: 24px 0;
 
   border-top: 1px solid rgba(20, 20, 20, 0.16);
-  border-bottom: 1px solid rgba(20, 20, 20, 0.16);
+  border-bottom: 0;
 }
 
 .reservation-page__event-title {
@@ -67,7 +67,7 @@
 }
 
 .reservation-page__event-date {
-  margin: 18px 0 0;
+  margin: 14px 0 0;
 
   font-family: Georgia, "Times New Roman", serif;
   font-size: 14px;
@@ -79,15 +79,15 @@
 .reservation-page__event-artists,
 .reservation-page__event-time,
 .reservation-page__event-price {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
 
   font-size: 12px;
-  line-height: 1.8;
+  line-height: 1.75;
   letter-spacing: 0.055em;
 }
 
 .reservation-page__event-time {
-  margin-top: 20px;
+  margin-top: 14px;
 
   font-family: Georgia, "Times New Roman", serif;
   letter-spacing: 0.09em;
@@ -95,7 +95,38 @@
 
 
 /* =====================================
-   Honeypot
+Event Notes
+===================================== */
+
+.reservation-page__event-notes {
+  margin: 0 0 28px;
+  padding: 8px 0 0;
+
+  border: 0;
+}
+
+.reservation-page__notes-label {
+  margin: 0 0 8px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 9px;
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+
+  opacity: 0.65;
+}
+
+.reservation-page__event-note {
+  margin: 2px 0 0;
+
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+}
+
+
+/* =====================================
+Honeypot
 ===================================== */
 
 .reservation-form__honeypot {
@@ -114,17 +145,24 @@
 
 
 /* =====================================
-   Form
+Form
 ===================================== */
 
+.reservation-page__form-section {
+  padding-top: 24px;
+
+  border-top: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+
 .reservation-form__field + .reservation-form__field {
-  margin-top: 38px;
+  margin-top: 24px;
 }
 
 .reservation-form__field label {
   display: block;
 
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 
   font-size: 13px;
   line-height: 1.6;
@@ -172,17 +210,17 @@
 
 .reservation-form input,
 .reservation-form select {
-  height: 48px;
+  height: 42px;
 
-  padding: 4px 0;
+  padding: 3px 0;
 
   font-size: 16px;
 }
 
 .reservation-form textarea {
-  min-height: 130px;
+  min-height: 110px;
 
-  padding: 12px 0;
+  padding: 8px 0;
 
   font-size: 15px;
   line-height: 1.8;
@@ -200,7 +238,7 @@
 
 
 /* =====================================
-   Select
+Select
 ===================================== */
 
 .reservation-form__select {
@@ -232,11 +270,11 @@
 
 
 /* =====================================
-   Submit
+Submit
 ===================================== */
 
 .reservation-form__submit {
-  margin-top: 56px;
+  margin-top: 36px;
 }
 
 .reservation-form__submit button {
@@ -245,9 +283,9 @@
   justify-content: center;
 
   width: 100%;
-  min-height: 54px;
+  min-height: 52px;
 
-  padding: 12px 28px;
+  padding: 11px 28px;
 
   color: #f7f5f0;
   background: #222;
@@ -280,11 +318,11 @@
 
 
 /* =====================================
-   Status
+Status
 ===================================== */
 
 .reservation-form__error {
-  margin: 32px 0 0;
+  margin: 24px 0 0;
 
   font-size: 12px;
   line-height: 1.8;
@@ -292,7 +330,7 @@
 }
 
 .reservation-form__required-note {
-  margin: 14px 0 0;
+  margin: 10px 0 0;
 
   font-size: 10px;
   letter-spacing: 0.07em;
@@ -302,11 +340,11 @@
 
 
 /* =====================================
-   Complete
+Complete
 ===================================== */
 
 .reservation-form__complete {
-  padding: 70px 0;
+  padding: 54px 0;
 
   text-align: center;
 
@@ -315,7 +353,7 @@
 }
 
 .reservation-form__complete-label {
-  margin: 0 0 24px;
+  margin: 0 0 20px;
 
   font-family: Georgia, "Times New Roman", serif;
   font-size: 10px;
@@ -332,7 +370,7 @@
 }
 
 .reservation-form__complete-event {
-  margin-top: 34px;
+  margin-top: 28px;
 
   font-size: 13px;
   line-height: 1.9;
@@ -354,8 +392,8 @@
 }
 
 .reservation-form__number {
-  margin-top: 34px;
-  padding: 20px 0;
+  margin-top: 28px;
+  padding: 18px 0;
 
   border-top: 1px solid rgba(20, 20, 20, 0.14);
   border-bottom: 1px solid rgba(20, 20, 20, 0.14);
@@ -379,7 +417,7 @@
 }
 
 .reservation-form__complete-message {
-  margin: 30px 0 0;
+  margin: 24px 0 0;
 
   font-size: 13px;
   line-height: 2;
@@ -387,7 +425,7 @@
 }
 
 .reservation-form__complete-closing {
-  margin: 28px 0 0;
+  margin: 22px 0 0;
 
   font-size: 13px;
   line-height: 2;
@@ -396,34 +434,47 @@
 
 
 /* =====================================
-   Notes
+System Notes
 ===================================== */
 
-.reservation-page__notes {
-  margin-top: 42px;
+.reservation-page__system-notes {
+  margin-top: 28px;
 
   font-size: 11px;
-  line-height: 1.9;
+  line-height: 1.8;
   letter-spacing: 0.05em;
 
   opacity: 0.72;
 }
 
-.reservation-page__notes p {
+.reservation-page__system-notes p {
   margin: 0;
 }
 
-.reservation-page__notes p + p {
-  margin-top: 4px;
+.reservation-page__system-notes p + p {
+  margin-top: 3px;
 }
 
 
 /* =====================================
-   Back
+Unavailable
+===================================== */
+
+.reservation-page__unavailable {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: 0.05em;
+}
+
+
+/* =====================================
+Back
 ===================================== */
 
 .reservation-page__back {
-  margin-top: 64px;
+  margin-top: 44px;
 
   text-align: center;
 }
@@ -446,12 +497,12 @@
 
 
 /* =====================================
-   Mobile
+Mobile
 ===================================== */
 
 @media (max-width: 768px) {
   .reservation-page {
-    padding: 120px 0 80px;
+    padding: 120px 0 72px;
   }
 
   .reservation-page__container {
@@ -459,11 +510,11 @@
   }
 
   .reservation-page__header {
-    margin-bottom: 56px;
+    margin-bottom: 28px;
   }
 
   .reservation-page__label {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 
     font-size: 10px;
   }
@@ -473,8 +524,8 @@
   }
 
   .reservation-page__event {
-    margin-top: 36px;
-    padding: 24px 0;
+    margin-top: 28px;
+    padding: 20px 0;
   }
 
   .reservation-page__event-title {
@@ -482,29 +533,43 @@
   }
 
   .reservation-page__event-date {
-    margin-top: 16px;
+    margin-top: 12px;
   }
 
   .reservation-page__event-artists {
-    line-height: 2;
+    line-height: 1.8;
+  }
+
+  .reservation-page__event-notes {
+    margin-bottom: 24px;
+    padding: 14px 0;
   }
 
   .reservation-form__field + .reservation-form__field {
-    margin-top: 32px;
+    margin-top: 22px;
+  }
+
+  .reservation-form input,
+  .reservation-form select {
+    height: 42px;
+  }
+
+  .reservation-form textarea {
+    min-height: 100px;
   }
 
   .reservation-form__submit {
-    margin-top: 48px;
+    margin-top: 34px;
   }
 
   .reservation-form__submit button {
-    min-height: 56px;
+    min-height: 54px;
 
     font-size: 13px;
   }
 
   .reservation-form__complete {
-    padding: 56px 0;
+    padding: 48px 0;
   }
 
   .reservation-form__complete h2 {
@@ -512,14 +577,14 @@
   }
 
   .reservation-form__complete-event {
-    margin-top: 28px;
+    margin-top: 24px;
 
     font-size: 12px;
   }
 
   .reservation-form__number {
-    margin-top: 28px;
-    padding: 18px 0;
+    margin-top: 24px;
+    padding: 16px 0;
   }
 
   .reservation-form__number-value {
@@ -531,7 +596,11 @@
     font-size: 12px;
   }
 
+  .reservation-page__system-notes {
+    margin-top: 24px;
+  }
+
   .reservation-page__back {
-    margin-top: 52px;
+    margin-top: 40px;
   }
 }

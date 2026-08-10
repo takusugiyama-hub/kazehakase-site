@@ -29,19 +29,25 @@ export type LiveEvent = {
   title: string;
   venue: string;
   area: string;
+  address?: string;
+
   open: string;
   start: string;
 
   advancePrice: string;
   doorPrice: string;
 
+  notes?: string[];
+
   artists: string[];
-  description: string;
+  description?: string[];
 
   image?: string;
   detailUrl: string;
 
-  reservationUrl: string;
+  reservation?: boolean;
+  reservationUrl?: string;
+
   soldOut: boolean;
   cancelled: boolean;
   published: boolean;

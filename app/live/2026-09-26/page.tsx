@@ -37,12 +37,12 @@ export default function LiveDetailPage() {
     </p>
 
     <Link
-      href="/live/2026-09-26/reserve"
-      className="live-detail__hero-reservation"
-    >
-      RESERVATION
-      <span aria-hidden="true"> →</span>
-    </Link>
+  href="/reserve?live=live-20260926"
+  className="live-detail__hero-reservation"
+>
+  RESERVATION
+  <span aria-hidden="true"> →</span>
+</Link>
   </div>
 </section>
 
@@ -390,11 +390,11 @@ export default function LiveDetailPage() {
         {/* 会場 */}
         <p className="live-detail__info-place">
           <a
-            href="ここにGoogle MapのURL"
+            href="https://maps.app.goo.gl/NBzNhN3c9nY9P1C88"
             target="_blank"
             rel="noopener noreferrer"
           >
-            岩美町 クラフト館岩井窯 参考館
+            クラフト館岩井窯 参考館
             <span
               className="live-detail__external"
               aria-hidden="true"
@@ -453,11 +453,11 @@ export default function LiveDetailPage() {
     </p>
 
     <Link
-      href="/live/2026-09-26/reserve"
-      className="live-detail__reservation-link"
-    >
-      このライブを予約する
-    </Link>
+  href="/reserve?live=live-20260926"
+  className="live-detail__reservation-link"
+>
+  このライブを予約する
+</Link>
   </div>
 </section>
     </article>

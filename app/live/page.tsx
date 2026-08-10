@@ -4,7 +4,7 @@ import Link from "next/link";
 import livesData from "@/data/lives.json";
 
 import type { LiveEvent } from "@/types/content";
-
+import { PastLiveArchive } from "@/components/live/PastLiveArchive";
 
 function getTodayInJapan(): string {
   return new Intl.DateTimeFormat("sv-SE", {
@@ -14,7 +14,6 @@ function getTodayInJapan(): string {
     day: "2-digit",
   }).format(new Date());
 }
-
 
 function formatLiveDate(date: string) {
   const [year, month, day] =
@@ -41,13 +40,14 @@ function formatLiveDate(date: string) {
   };
 }
 
-
 export default function LivePage() {
   const today = getTodayInJapan();
 
   const lives = (livesData as LiveEvent[])
     .filter((live) => live.published)
-    .sort((a, b) => a.date.localeCompare(b.date));
+    .sort((a, b) =>
+      a.date.localeCompare(b.date),
+    );
 
   const upcomingLives = lives.filter(
     (live) => live.date >= today,
@@ -60,7 +60,6 @@ export default function LivePage() {
   return (
     <main className="live-page">
       <div className="live-page__container">
-
         {/* =====================================
             Header
         ===================================== */}
@@ -70,7 +69,6 @@ export default function LivePage() {
             LIVE
           </h1>
         </header>
-
 
         {/* =====================================
             Upcoming
@@ -86,6 +84,11 @@ export default function LivePage() {
               {upcomingLives.map((live) => {
                 const formattedDate =
                   formatLiveDate(live.date);
+                const reservationHref =
+                  live.reservationUrl ||
+                  (live.reservation
+                    ? `/reserve?live=${encodeURIComponent(live.id)}`
+                    : "");
 
                 return (
                   <article
@@ -98,7 +101,7 @@ export default function LivePage() {
                           <Link
                             href={live.detailUrl}
                             className="live-page__image"
-                            aria-label={`${live.title}の詳細を見る`}
+                            aria-label={`${live.title}の特設ページを見る`}
                           >
                             <Image
                               src={live.image}
@@ -136,22 +139,38 @@ export default function LivePage() {
                       </h2>
 
                       <div className="live-page__place">
-                        <p className="live-page__venue">
-                          {live.venue}
-                        </p>
+  <p className="live-page__venue">
+    {live.venue}
+  </p>
 
-                        {live.area && (
-                          <p className="live-page__area">
-                            {live.area}
-                          </p>
-                        )}
-                      </div>
+  {live.address && (
+    <p className="live-page__address">
+      {live.address}
+    </p>
+  )}
+</div>
 
                       {live.artists.length > 0 && (
                         <p className="live-page__artists">
-                          {live.artists.join(" / ")}
+                          出演：{live.artists.join(" / ")}
                         </p>
                       )}
+
+                      {live.description &&
+  live.description.length > 0 && (
+    <div className="live-page__description">
+      {live.description.map(
+        (line, index) => (
+          <p
+            key={`${live.id}-description-${index}`}
+            className="live-page__description-line"
+          >
+            {line}
+          </p>
+        ),
+      )}
+    </div>
+  )}
 
                       {(live.open || live.start) && (
                         <p className="live-page__meta">
@@ -199,6 +218,28 @@ export default function LivePage() {
                         </p>
                       )}
 
+                      {live.notes &&
+                        live.notes.length > 0 && (
+                          <div className="live-page__information">
+                            <p className="live-page__information-label">
+                              INFORMATION
+                            </p>
+
+                            <div className="live-page__information-list">
+                              {live.notes.map(
+                                (note, index) => (
+                                  <p
+                                    key={`${live.id}-note-${index}`}
+                                    className="live-page__information-item"
+                                  >
+                                    {note}
+                                  </p>
+                                ),
+                              )}
+                            </div>
+                          </div>
+                        )}
+
                       <div className="live-page__actions">
                         {live.cancelled ? (
                           <p className="live-page__status">
@@ -206,22 +247,31 @@ export default function LivePage() {
                           </p>
                         ) : (
                           <>
+                            {live.soldOut ? (
+                              <span className="live-page__status">
+                                SOLD OUT
+                              </span>
+                            ) : (
+                              reservationHref && (
+                                <Link
+                                  href={reservationHref}
+                                  className="live-page__reservation-link"
+                                >
+                                  ご予約はこちら
+                                </Link>
+                              )
+                            )}
+
                             {live.detailUrl && (
                               <Link
                                 href={live.detailUrl}
                                 className="live-page__detail-link"
                               >
-                                詳細を見る
+                                特設ページ
                                 <span aria-hidden="true">
                                   {" →"}
                                 </span>
                               </Link>
-                            )}
-
-                            {live.soldOut && (
-                              <span className="live-page__status">
-                                SOLD OUT
-                              </span>
                             )}
                           </>
                         )}
@@ -238,71 +288,21 @@ export default function LivePage() {
           )}
         </section>
 
-
         {/* =====================================
             Past
         ===================================== */}
 
         {pastLives.length > 0 && (
-          <section className="live-page__section live-page__section--past">
-            <p className="live-page__section-label">
-              PAST
-            </p>
+  <section className="live-page__section live-page__section--past">
+    <p className="live-page__section-label">
+      PAST（現在過去のライブをまとめ中。故に、掲載されていないものもあるかもしれません。）
+    </p>
 
-            <div className="live-page__past-list">
-              {pastLives.map((live) => {
-                const formattedDate =
-                  formatLiveDate(live.date);
-
-                const content = (
-                  <>
-                    <p className="live-page__past-date">
-                      {formattedDate.date}
-                    </p>
-
-                    <p className="live-page__past-title">
-                      {live.title}
-                    </p>
-
-                    <p className="live-page__past-venue">
-                      {live.venue}
-                    </p>
-
-                    {live.detailUrl && (
-                      <span
-                        className="live-page__past-arrow"
-                        aria-hidden="true"
-                      >
-                        →
-                      </span>
-                    )}
-                  </>
-                );
-
-                if (live.detailUrl) {
-                  return (
-                    <Link
-                      key={live.id}
-                      href={live.detailUrl}
-                      className="live-page__past-item"
-                    >
-                      {content}
-                    </Link>
-                  );
-                }
-
-                return (
-                  <div
-                    key={live.id}
-                    className="live-page__past-item live-page__past-item--static"
-                  >
-                    {content}
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        )}
+    <PastLiveArchive
+      lives={pastLives}
+    />
+  </section>
+)}
       </div>
     </main>
   );

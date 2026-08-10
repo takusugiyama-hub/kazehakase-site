@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Listen } from "@/components/home/Listen";
+
 import livesData from "@/data/lives.json";
 
-import type {
-  LiveEvent,
-} from "@/types/content";
+import type { LiveEvent } from "@/types/content";
 
 function getTodayInJapan(): string {
   return new Intl.DateTimeFormat("sv-SE", {
@@ -87,7 +87,7 @@ export function HomeInfoBar() {
             NEXT LIVE
         ===================================== */}
 
-        <div className="home-info-bar__live">
+        <div className="home-info-bar__schedule">
           <p className="home-info-bar__label">
             NEXT LIVE
           </p>
@@ -103,17 +103,17 @@ export function HomeInfoBar() {
           </p>
 
           <p className="home-info-bar__venue">
-            <span aria-hidden="true">
-              @
-            </span>{" "}
-            {nextLive.venue}
+  <span aria-hidden="true">
+    @
+  </span>{" "}
+  {nextLive.venue}
 
-            {nextLive.area && (
-              <span>
-                ・{nextLive.area}
-              </span>
-            )}
-          </p>
+  {nextLive.area && (
+    <span>
+      （{nextLive.area}）
+    </span>
+  )}
+</p>
 
           {(nextLive.open ||
             nextLive.start) && (
@@ -193,32 +193,33 @@ export function HomeInfoBar() {
               「{nextLive.title}」
             </h2>
 
-            {nextLive.artists.length >
-              0 && (
+            {nextLive.artists.length > 0 && (
               <p className="home-info-bar__artists">
                 出演：
-                {nextLive.artists.join(
-                  " / ",
-                )}
+                {nextLive.artists.join(" / ")}
               </p>
             )}
 
-            <div className="home-info-bar__live-action">
-              {nextLive.soldOut ? (
-                <span className="home-info-bar__sold-out">
-                  SOLD OUT
-                </span>
-              ) : (
-                <Link
-                  href={`/live/${nextLive.date}`}
-                  className="home-info-bar__detail-link"
-                >
-                  詳細を見る
-                </Link>
-              )}
-            </div>
+            {nextLive.soldOut ? (
+  <span className="home-info-bar__status">
+    SOLD OUT
+  </span>
+) : nextLive.detailUrl ? (
+  <Link
+    href={nextLive.detailUrl}
+    className="home-info-bar__live-button"
+  >
+    詳細を見る
+  </Link>
+) : null}
           </div>
         </div>
+
+        {/* =====================================
+            LISTEN
+        ===================================== */}
+
+        <Listen />
       </div>
     </section>
   );
