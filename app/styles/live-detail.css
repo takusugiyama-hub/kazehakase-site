@@ -173,7 +173,17 @@
 ===================================== */
 
 .live-detail__intro {
+  position: relative;
+
+  padding-bottom: 0;
+
   text-align: center;
+  overflow: hidden;
+}
+
+.live-detail__intro-copy {
+  position: relative;
+  z-index: 2;
 }
 
 .live-detail__intro p {
@@ -188,6 +198,44 @@
   font-size: clamp(20px, 2.2vw, 30px);
   line-height: 2;
   letter-spacing: 0.08em;
+}
+
+
+/* Iwai-gama landscape */
+
+.live-detail__intro-image {
+  position: relative;
+
+  width: min(800px, calc(100% - 96px));
+  height: clamp(240px, 25vw, 320px);
+
+  margin: 40px auto 0;
+
+  overflow: hidden;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9) 0%,
+    black 14%,
+    black 100%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9) 0%,
+    black 14%,
+    black 100%
+  );
+}
+
+.live-detail__intro-image img {
+  object-fit: cover;
+  object-position: center 56%;
+}
+
+.live-detail__intro-image img {
+  object-fit: cover;
+  object-position: center 56%;
 }
 
 
@@ -623,6 +671,7 @@
     padding: 76px 0;
   }
 
+
   /* =====================================
      Hero
   ===================================== */
@@ -663,10 +712,31 @@
   }
 
   .live-detail__hero-reservation {
-  margin-top: 26px;
+    margin-top: 26px;
 
-  font-size: 10px;
+    font-size: 10px;
+  }
+
+
+  /* =====================================
+     Introduction
+  ===================================== */
+
+  .live-detail__intro {
+    padding-bottom: 0;
+  }
+
+  .live-detail__lead {
+    font-size: 19px;
+  }
+
+.live-detail__intro-image {
+  width: calc(100% - 56px);
+  height: 210px;
+
+  margin-top: 32px;
 }
+
 
   /* =====================================
      Shared
@@ -680,14 +750,11 @@
     font-size: clamp(26px, 8vw, 36px);
   }
 
-  .live-detail__lead {
-    font-size: 19px;
-  }
-
   .live-detail__body {
     font-size: 14px;
     line-height: 2;
   }
+
 
   /* =====================================
      People
@@ -718,6 +785,7 @@
     font-size: 11px;
   }
 
+
   /* =====================================
      Media
   ===================================== */
@@ -725,6 +793,7 @@
   .live-detail__media-image {
     aspect-ratio: 4 / 3;
   }
+
 
   /* =====================================
      Information

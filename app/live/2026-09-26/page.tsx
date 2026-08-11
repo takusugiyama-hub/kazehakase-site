@@ -46,23 +46,28 @@ export default function LiveDetailPage() {
   </div>
 </section>
 
-      {/* =====================================
-          Introduction
-      ===================================== */}
+<section className="live-detail__section live-detail__intro">
+  <div className="live-detail__narrow live-detail__intro-copy">
+    <p className="live-detail__lead">
+      歌と絵が出会う夜です。
+    </p>
 
-      <section className="live-detail__section live-detail__intro">
-        <div className="live-detail__narrow">
-          <p className="live-detail__lead">
-            歌と絵が出会う夜です。
-          </p>
+    <p>
+      岩井窯の参考館で、
+      <br />
+      お待ちしています。
+    </p>
+  </div>
 
-          <p>
-            岩井窯の参考館で、
-            <br />
-            お待ちしています。
-          </p>
-        </div>
-      </section>
+  <div className="live-detail__intro-image">
+    <Image
+      src="/images/live/2026-09-26/iwaigama.jpg"
+      alt="クラフト館岩井窯 参考館"
+      fill
+      sizes="100vw"
+    />
+  </div>
+</section>
 
       {/* =====================================
           About this night
@@ -253,7 +258,7 @@ export default function LiveDetailPage() {
 
             <div className="live-detail__body">
               <p>
-                この日のライブドローイングでは、
+                ライブドローイングでは、
                 一曲が終わるごとに一枚の作品が完成します。
               </p>
 
@@ -346,7 +351,11 @@ export default function LiveDetailPage() {
 
               <div className="live-detail__body">
                 <p>
-                  岩井窯では「花まつり」と「ふゆむかえまつり」というイベントが恒例になっています。これまでに数度、
+                  岩井窯では、「花まつり」と「ふゆむかえまつり」が毎年開かれています。
+                </p>
+                
+                <p>
+                  これまでに数度、
                   「まのいいりょうし」として
                   手作りのスパイスカレーで出店してきました。
                 </p>
