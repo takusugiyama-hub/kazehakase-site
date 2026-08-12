@@ -431,10 +431,15 @@ export default function LiveDetailPage() {
           </p>
 
           <p>
-            前売 3,500円
+            前売 4,000円
             <span> / </span>
-            当日 4,000円
+            当日 4,500円
           </p>
+        </div>
+        <div className="live-detail__info-meta">
+          <p>※中学生以下無料（お子様もいらっしゃる場合は、ご予約時にその旨お伝えください）
+            </p>
+            <p>※公演は２時間から２時間半を予定しています。</p>
         </div>
 
       </div>
