@@ -151,6 +151,16 @@ export function ReservationPageClient() {
                 )}
               </p>
             )}
+
+            {live.detailUrl && (
+              <Link
+                href={live.detailUrl}
+                className="reservation-page__event-detail-link"
+              >
+                イベント詳細を見る
+                <span aria-hidden="true"> →</span>
+              </Link>
+            )}
           </div>
         </header>
 

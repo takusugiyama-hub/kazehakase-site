@@ -93,6 +93,34 @@ Event
   letter-spacing: 0.09em;
 }
 
+.reservation-page__event-detail-link {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: 20px;
+  padding: 9px 14px;
+
+  color: inherit;
+  background: transparent;
+
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+
+  border: 1px solid rgba(20, 20, 20, 0.3);
+
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.reservation-page__event-detail-link:hover,
+.reservation-page__event-detail-link:focus-visible {
+  background: rgba(20, 20, 20, 0.04);
+  border-color: #171717;
+}
+
 
 /* =====================================
 Event Notes
