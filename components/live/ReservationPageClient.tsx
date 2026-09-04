@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 import livesData from "@/data/lives.json";
 
@@ -9,10 +6,13 @@ import { ReservationForm } from "@/components/live/ReservationForm";
 import { formatEventDate } from "@/lib/date";
 import type { LiveEvent } from "@/types/content";
 
-export function ReservationPageClient() {
-  const searchParams = useSearchParams();
+type ReservationPageClientProps = {
+  liveId: string | null;
+};
 
-  const liveId = searchParams.get("live");
+export function ReservationPageClient({
+  liveId,
+}: ReservationPageClientProps) {
 
   const live =
     (livesData as LiveEvent[]).find(

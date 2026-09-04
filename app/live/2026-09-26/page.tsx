@@ -37,7 +37,7 @@ export default function LiveDetailPage() {
     </p>
 
     <Link
-  href="/reserve?live=live-20260926"
+  href="/reserve/live-20260926"
   className="live-detail__hero-reservation"
 >
   RESERVATION
@@ -467,7 +467,7 @@ export default function LiveDetailPage() {
     </p>
 
     <Link
-  href="/reserve?live=live-20260926"
+  href="/reserve/live-20260926"
   className="live-detail__reservation-link"
 >
   このライブを予約する

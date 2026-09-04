@@ -57,7 +57,7 @@ export default function LivePage() {
                 const reservationHref =
                   live.reservationUrl ||
                   (live.reservation
-                    ? `/reserve?live=${encodeURIComponent(live.id)}`
+                    ? `/reserve/${encodeURIComponent(live.id)}`
                     : "");
 
                 return (

@@ -1,25 +1,29 @@
-import { Suspense } from "react";
+import Link from "next/link";
 
-import { ReservationPageClient } from "@/components/live/ReservationPageClient";
-
-export default function ReservationPage() {
+export default function ReservationIndexPage() {
   return (
-    <Suspense
-      fallback={
-        <main className="reservation-page">
-          <div className="reservation-page__container">
-            <p className="reservation-page__label">
-              RESERVATION
-            </p>
+    <main className="reservation-page">
+      <div className="reservation-page__container">
+        <header className="reservation-page__header">
+          <p className="reservation-page__label">
+            RESERVATION
+          </p>
 
-            <p className="reservation-page__unavailable">
-              読み込み中です。
-            </p>
-          </div>
-        </main>
-      }
-    >
-      <ReservationPageClient />
-    </Suspense>
+          <h1 className="reservation-page__title">
+            ご予約
+          </h1>
+        </header>
+
+        <p className="reservation-page__unavailable">
+          ご予約になる公演をLIVE一覧からお選びください。
+        </p>
+
+        <div className="reservation-page__back">
+          <Link href="/live">
+            ← LIVE一覧へ
+          </Link>
+        </div>
+      </div>
+    </main>
   );
 }
