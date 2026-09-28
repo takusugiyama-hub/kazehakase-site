@@ -21,9 +21,20 @@ export default function LivePage() {
       a.date.localeCompare(b.date),
     );
 
-  const upcomingLives = lives.filter(
-    (live) => today !== "" && live.date >= today,
+  const todayLives = lives.filter(
+    (live) => today !== "" && live.date === today,
   );
+
+  const upcomingLives = lives.filter(
+    (live) => today !== "" && live.date > today,
+  );
+
+  const sections = [
+    ...(todayLives.length > 0
+      ? [{ label: "TODAY", lives: todayLives }]
+      : []),
+    { label: "UPCOMING", lives: upcomingLives },
+  ];
 
   const pastLives = lives
     .filter((live) => today !== "" && live.date < today)
@@ -43,21 +54,22 @@ export default function LivePage() {
         </header>
 
         {/* =====================================
-            Upcoming
+            Today / Upcoming
         ===================================== */}
 
-        <section className="live-page__section">
+        {sections.map((section) => (
+        <section className="live-page__section" key={section.label}>
           <p className="live-page__section-label">
-            UPCOMING
+            {section.label}
           </p>
 
           {!today ? (
             <p className="live-page__empty" role="status">
               公演情報を確認しています。
             </p>
-          ) : upcomingLives.length > 0 ? (
+          ) : section.lives.length > 0 ? (
             <div className="live-page__list">
-              {upcomingLives.map((live) => {
+              {section.lives.map((live) => {
                 const formattedDate =
                   formatLiveDate(live.date);
                 const reservationHref =
@@ -259,10 +271,13 @@ export default function LivePage() {
             </div>
           ) : (
             <p className="live-page__empty">
-              現在予定している公演はありません。
+              {todayLives.length > 0
+                ? "明日以降に予定している公演はありません。"
+                : "現在予定している公演はありません。"}
             </p>
           )}
         </section>
+        ))}
 
         {/* =====================================
             Past
