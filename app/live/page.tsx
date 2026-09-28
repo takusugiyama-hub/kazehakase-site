@@ -1,17 +1,19 @@
+"use client";
+
+import { useJapanDate } from "@/lib/useJapanDate";
 import Image from "next/image";
 import Link from "next/link";
 import { PastLiveArchive } from "@/components/live/PastLiveArchive";
 import livesData from "@/data/lives.json";
 import {
   formatLiveDate,
-  getTodayInJapan,
 } from "@/lib/date";
 import type { LiveEvent } from "@/types/content";
 
 
 
 export default function LivePage() {
-  const today = getTodayInJapan();
+  const today = useJapanDate();
 
   const lives = (livesData as LiveEvent[])
     .filter((live) => live.published)
@@ -20,11 +22,11 @@ export default function LivePage() {
     );
 
   const upcomingLives = lives.filter(
-    (live) => live.date >= today,
+    (live) => today !== "" && live.date >= today,
   );
 
   const pastLives = lives
-    .filter((live) => live.date < today)
+    .filter((live) => today !== "" && live.date < today)
     .reverse();
 
   return (
@@ -49,7 +51,11 @@ export default function LivePage() {
             UPCOMING
           </p>
 
-          {upcomingLives.length > 0 ? (
+          {!today ? (
+            <p className="live-page__empty" role="status">
+              公演情報を確認しています。
+            </p>
+          ) : upcomingLives.length > 0 ? (
             <div className="live-page__list">
               {upcomingLives.map((live) => {
                 const formattedDate =
@@ -222,7 +228,7 @@ export default function LivePage() {
                                 SOLD OUT
                               </span>
                             ) : (
-                              reservationHref && (
+                              reservationHref && live.date > today && (
                                 <Link
                                   href={reservationHref}
                                   className="live-page__reservation-link"
@@ -253,7 +259,7 @@ export default function LivePage() {
             </div>
           ) : (
             <p className="live-page__empty">
-              現在、予定されている公演はありません。
+              現在予定している公演はありません。
             </p>
           )}
         </section>
