@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 import musicData from "@/data/music.json";
 
@@ -50,13 +50,40 @@ const serviceLabels: {
   },
 ];
 
-export function Listen() {
-  const albums = (musicData as MusicItem[]).filter(
+const albums = (musicData as MusicItem[]).filter(
     (item) =>
       item.category === "album" &&
-      item.published === true,
+      item.published === true &&
+      serviceLabels.some(({ key }) => Boolean(item.links[key])),
   );
 
+export function ListenRow() {
+  const [order, setOrder] = useState(albums);
+
+  useEffect(() => {
+    // Shuffle once after hydration; keep the order stable during interaction.
+    const frame = requestAnimationFrame(() => {
+      const shuffled = [...albums];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      setOrder(shuffled);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  return (
+    <div className="home-info-bar__listen-row">
+      {order.slice(0, 3).map((album) => (
+        <Listen key={album.id} selectedAlbum={album} />
+      ))}
+    </div>
+  );
+}
+
+export function Listen({ selectedAlbum }: { selectedAlbum?: MusicItem } = {}) {
+  const servicesId = useId();
   const [currentIndex, setCurrentIndex] =
     useState(0);
 
@@ -67,7 +94,7 @@ export function Listen() {
     return null;
   }
 
-  const album = albums[currentIndex];
+  const album = selectedAlbum ?? albums[currentIndex];
 
   const goPrevious = () => {
     setCurrentIndex((current) =>
@@ -132,13 +159,13 @@ export function Listen() {
                   )
                 }
                 aria-expanded={isServicesOpen}
-                aria-controls="listen-services"
+                aria-controls={servicesId}
               >
                 試聴する
               </button>
             )}
 
-            <div className="home-info-bar__listen-navigation">
+            {!selectedAlbum && <div className="home-info-bar__listen-navigation">
               <button
                 type="button"
                 onClick={goPrevious}
@@ -156,12 +183,12 @@ export function Listen() {
               >
                 ›
               </button>
-            </div>
+            </div>}
           </div>
 
           {availableServices.length > 0 && (
   <div
-    id="listen-services"
+    id={servicesId}
     className={`home-info-bar__streaming-services${
       isServicesOpen
         ? " home-info-bar__streaming-services--open"

@@ -4,7 +4,7 @@ import { useJapanDate } from "@/lib/useJapanDate";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Listen } from "@/components/home/Listen";
+import { Listen, ListenRow } from "@/components/home/Listen";
 
 import livesData from "@/data/lives.json";
 
@@ -43,8 +43,8 @@ export function HomeInfoBar() {
   if (!nextLive) {
     return (
       <section className="home-info-bar">
-        <div className="home-info-bar__inner">
-          <Listen />
+        <div className="home-info-bar__inner home-info-bar__inner--listen-only">
+          <ListenRow />
         </div>
       </section>
     );
