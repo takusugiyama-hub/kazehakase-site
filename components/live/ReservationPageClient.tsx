@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import livesData from "@/data/lives.json";
@@ -9,6 +12,22 @@ import type { LiveEvent } from "@/types/content";
 type ReservationPageClientProps = {
   liveId: string | null;
 };
+
+// 公演日は日本時間として扱う。端末のタイムゾーンには依存しない。
+function getReservationTiming(date: string) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
+
+  const midnight = Date.parse(`${date}T00:00:00+09:00`);
+  if (!Number.isFinite(midnight)) return null;
+  // Date.parse が存在しない日付を翌月に繰り上げた場合も受付を開かない。
+  if (new Date(midnight + 9 * 60 * 60 * 1000).toISOString().slice(0, 10) !== date) {
+    return null;
+  }
+
+  const dayEnd = midnight + 24 * 60 * 60 * 1000;
+  // 当日予約は受け付けず、公演当日の日本時間0時で締め切る。
+  return { closesAt: midnight, dayEnd };
+}
 
 export function ReservationPageClient({
   liveId,
@@ -22,6 +41,40 @@ export function ReservationPageClient({
         !item.cancelled &&
         item.reservation,
     ) ?? null;
+
+  const timing = live ? getReservationTiming(live.date) : null;
+  const closesAt = timing?.closesAt ?? null;
+  const dayEnd = timing?.dayEnd ?? null;
+  // 静的HTMLと初回描画を一致させ、時刻確認前にはフォームを出さない。
+  const [now, setNow] = useState<number | null>(null);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    const update = () => {
+      clearTimeout(timer);
+      const current = Date.now();
+      setNow(current);
+      const nextBoundary = [closesAt, dayEnd].find(
+        (value): value is number => value !== null && value > current,
+      );
+      // 長時間の表示、端末時刻の変更、スリープからの復帰にも対応する。
+      timer = setTimeout(update, Math.min(
+        nextBoundary === undefined ? 60_000 : nextBoundary - current,
+        60_000,
+      ));
+    };
+    update();
+    window.addEventListener("focus", update);
+    document.addEventListener("visibilitychange", update);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("focus", update);
+      document.removeEventListener("visibilitychange", update);
+    };
+  }, [closesAt, dayEnd]);
+
+  const accepting = now !== null && closesAt !== null && now < closesAt;
+  const pastEvent = now !== null && dayEnd !== null && now >= dayEnd;
 
   if (!live) {
     return (
@@ -168,7 +221,7 @@ export function ReservationPageClient({
             Event Notes
         ===================================== */}
 
-        {!live.soldOut &&
+        {accepting && !live.soldOut &&
           live.notes &&
           live.notes.length > 0 && (
             <div className="reservation-page__event-notes">
@@ -193,10 +246,35 @@ export function ReservationPageClient({
             Form
         ===================================== */}
 
-        {!live.soldOut ? (
+        {!accepting ? (
+          <section className="reservation-page__unavailable" aria-live="polite">
+            {now === null ? (
+              <p>予約受付状況を確認しています。</p>
+            ) : pastEvent ? (
+              <>
+                <p>この公演は終了しました。</p>
+                <p>ご来場いただいたみなさま、ありがとうございました。</p>
+              </>
+            ) : (
+              <>
+                <p>この公演の予約受付は終了しました。</p>
+                <p>こちらのフォームでのご予約は、公演前日まで承ります。</p>
+                <p>当日のご来場については、各公演の詳細ページに記載のお問い合わせ先へご確認ください。</p>
+              </>
+            )}
+          </section>
+        ) : !live.soldOut ? (
           <section
             className="reservation-page__form-section"
             aria-label="予約フォーム"
+            onSubmitCapture={(event) => {
+              const current = Date.now();
+              if (closesAt === null || current >= closesAt) {
+                event.preventDefault();
+                event.stopPropagation();
+                setNow(current);
+              }
+            }}
           >
             <ReservationForm
               eventId={live.id}
@@ -222,8 +300,16 @@ export function ReservationPageClient({
             System Notes
         ===================================== */}
 
-        {!live.soldOut && (
+        {accepting && !live.soldOut && (
           <div className="reservation-page__system-notes">
+            <p>
+              こちらのフォームでのご予約は、公演前日まで承ります。
+            </p>
+
+            <p>
+              当日のご来場については、各公演の詳細ページに記載のお問い合わせ先へご確認ください。
+            </p>
+
             <p>
               料金は当日、会場にてお支払いください。
             </p>
