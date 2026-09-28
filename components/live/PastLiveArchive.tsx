@@ -144,10 +144,10 @@ export function PastLiveArchive({
 
                           {live.detailUrl && (
                             <span
-                              className="live-page__past-arrow"
-                              aria-hidden="true"
+                              className="live-page__past-detail"
                             >
-                              →
+                              特設ページ
+                              <span aria-hidden="true"> →</span>
                             </span>
                           )}
                         </>
