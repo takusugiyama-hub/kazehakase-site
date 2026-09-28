@@ -36,13 +36,7 @@ export default function LiveDetailPage() {
       クラフト館岩井窯 参考館にて
     </p>
 
-    <Link
-  href="/reserve/live-20260926"
-  className="live-detail__hero-reservation"
->
-  RESERVATION
-  <span aria-hidden="true"> →</span>
-</Link>
+
   </div>
 </section>
 
@@ -463,15 +457,10 @@ export default function LiveDetailPage() {
     </h2>
 
     <p className="live-detail__reservation-intro">
-      ご予約はこちらから承ります。
+      この公演は終了しました。
     </p>
 
-    <Link
-  href="/reserve/live-20260926"
-  className="live-detail__reservation-link"
->
-  このライブを予約する
-</Link>
+    {/* ライブ後記の公開後、この位置にリンクを追加する。 */}
   </div>
 </section>
     </article>
